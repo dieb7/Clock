@@ -2,7 +2,7 @@
 SILENCE = @
 
 #---- Outputs ----#
-COMPONENT_NAME = hwClock
+COMPONENT_NAME = Clock
 #Set this to @ to keep the makefile quiet
 SILENCE = @
 
