@@ -13,7 +13,7 @@ public:
   ClockOutput() {}
   virtual ~ClockOutput() {}
 
-  void show(unsigned char hour, unsigned char minute, unsigned char second);
+  virtual void show(unsigned char hour, unsigned char minute, unsigned char second);
 };
 
 #endif /* CLOCKOUTPUT_H_ */
