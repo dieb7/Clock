@@ -12,12 +12,16 @@
 #include <Timer.h>
 #include "ISystemClock.h"
 #include "TimeCounter.h"
+#include "IClockOutput.h"
+#include "IClockAlarm.h"
 
 class Clock: public ranetos::ITask {
 	ranetos::Timer & timer;
 	TimeCounter hour;
 	TimeCounter minute;
 	TimeCounter second;
+	IClockOutput * output;
+	IClockAlarm * alarm;
 public:
 	Clock(ranetos::Timer & timer): timer(timer) {
 		hour.setLimit(23);
@@ -25,6 +29,8 @@ public:
 		second.setLimit(59);
 		timer.setTimeOut(1000);
 		timer.start();
+		output = nullptr;
+		alarm = nullptr;
 	}
 	virtual ~Clock() {}
 
@@ -50,6 +56,22 @@ public:
 	}
 
 	void work();
+
+	IClockOutput* getOutput() {
+		return output;
+	}
+
+	void setOutput(IClockOutput *output) {
+		this->output = output;
+	}
+
+	IClockAlarm* getAlarm() {
+		return alarm;
+	}
+
+	void setAlarm(IClockAlarm* alarm) {
+		this->alarm = alarm;
+	}
 };
 
 #endif /* CLOCK_H_ */

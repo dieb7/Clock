@@ -15,6 +15,12 @@ void Clock::work() {
 				hour.increaseCount();
 			}
 		}
+		if (output) {
+			output->show(hour.getTimeCount(), minute.getTimeCount(), second.getTimeCount());
+		}
+		if (alarm) {
+			alarm->checkTime(hour.getTimeCount(), minute.getTimeCount(), second.getTimeCount());
+		}
 	}
 }
 
