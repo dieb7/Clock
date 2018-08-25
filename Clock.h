@@ -40,6 +40,15 @@ public:
 		return second.getTimeCount();
 	}
 
+	void incrementHour() {
+		hour.increaseCount();
+	}
+
+	void incrementMinute() {
+		minute.increaseCount();
+		second.setTimeCount(0);
+	}
+
 	void work();
 };
 
